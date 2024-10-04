@@ -1,0 +1,121 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF8E7"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o nome do personagem"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:background="@android:drawable/edit_text"
+        android:layout_marginTop="32dp"/>
+
+    <TextView
+        android:id="@+id/raceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha sua raça"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#775447"
+        android:layout_marginTop="16dp"/>
+
+    <!-- RadioGroup para Raças -->
+    <RadioGroup
+        android:id="@+id/raceGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioDwarf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anão"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioElf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Elfo"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioHuman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Humano"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioHalfling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Halfling"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/classTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha sua classe"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#775447"
+        android:layout_marginTop="16dp"/>
+
+    <!-- RadioGroup para Classes -->
+    <RadioGroup
+        android:id="@+id/classGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioWarrior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guerreiro"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioMage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mago"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioRogue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ladino"
+            android:textSize="18sp" />
+
+        <RadioButton
+            android:id="@+id/radioCleric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Clérigo"
+            android:textSize="18sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#8C2C9B"
+        android:text="Próxima página"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp" />
+</LinearLayout>
