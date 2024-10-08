@@ -28,7 +28,6 @@
         android:textColor="#775447"
         android:layout_marginTop="16dp"/>
 
-    <!-- RadioGroup para Raças -->
     <RadioGroup
         android:id="@+id/raceGroup"
         android:layout_width="match_parent"
@@ -73,7 +72,6 @@
         android:textColor="#775447"
         android:layout_marginTop="16dp"/>
 
-    <!-- RadioGroup para Classes -->
     <RadioGroup
         android:id="@+id/classGroup"
         android:layout_width="match_parent"

@@ -14,7 +14,6 @@ class CreateCharacterActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_character)
 
-        // Receber os dados passados da SecondActivity
         val name = intent.getStringExtra("name")
         val raceString = intent.getStringExtra("race")
         val classString = intent.getStringExtra("charClass")
@@ -25,11 +24,9 @@ class CreateCharacterActivity : ComponentActivity() {
         val wisdom = intent.getIntExtra("wisdom", 8)
         val charisma = intent.getIntExtra("charisma", 8)
 
-        // Convertendo as strings para enums
         val race = Race.valueOf(raceString!!)
         val charClass = CharClass.valueOf(classString!!)
 
-        // Criar o personagem com os dados recebidos
         val abilities = Abilities(
             strength = Ability(strength),
             dexterity = Ability(dexterity),
@@ -39,19 +36,15 @@ class CreateCharacterActivity : ComponentActivity() {
             charisma = Ability(charisma)
         )
 
-        // Aplicar bônus de raça
         race.applyRacialBonuses(abilities)
 
-        // Criar o personagem com os atributos finais
         val character = Character(name!!, race, charClass, abilities)
 
-        // Preenchendo os TextViews com os dados do personagem
         findViewById<TextView>(R.id.characterName).text = character.name
         findViewById<TextView>(R.id.characterRace).text = character.race.description
         findViewById<TextView>(R.id.characterClass).text = character.charClass.description
         findViewById<TextView>(R.id.characterHp).text = "Vida: ${character.hitPoints}"
 
-        // Preenchendo os atributos e modificadores
         findViewById<TextView>(R.id.strengthValue).text = abilities.strength.score.toString()
         findViewById<TextView>(R.id.strengthModifier).text = formatModifier(abilities.strength.modifier)
 
@@ -71,7 +64,6 @@ class CreateCharacterActivity : ComponentActivity() {
         findViewById<TextView>(R.id.charismaModifier).text = formatModifier(abilities.charisma.modifier)
     }
 
-    // Função utilitária para formatar os modificadores com o sinal correto
     private fun formatModifier(modifier: Int): String {
         return if (modifier >= 0) "+$modifier" else modifier.toString()
     }

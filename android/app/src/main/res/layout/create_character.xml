@@ -1,258 +1,337 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF8E7"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="16dp"
-    android:background="#FFF8E7">
+    android:padding="16dp">
 
-    <!-- Exibe o Nome do Personagem -->
-    <TextView
-        android:id="@+id/characterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nome do Personagem"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#775447"
-        android:layout_marginBottom="16dp"/>
-
-    <!-- Exibe a Raça -->
-    <TextView
-        android:id="@+id/characterRace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Raça"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#775447"
-        android:layout_marginBottom="8dp"/>
-
-    <!-- Exibe a Classe -->
-    <TextView
-        android:id="@+id/characterClass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Classe"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#775447"
-        android:layout_marginBottom="8dp"/>
-
-    <!-- Exibe os Pontos de Vida -->
-    <TextView
-        android:id="@+id/characterHp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Vida"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#775447"
-        android:layout_marginBottom="24dp"/>
-
-    <!-- Layout para os Atributos -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
 
-        <!-- Força -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/characterName"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:layout_weight="1"
+            android:background="#e6e6e6"
+            android:padding="8dp"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#775447"
+            android:hint="Nome" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Força"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/strengthValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="15"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/strengthModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+2"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
-        <!-- Destreza -->
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/characterRace"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Destreza"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/dexterityValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/dexterityModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+1"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
-        <!-- Constituição -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Constituição"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/constitutionValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="13"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/constitutionModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+1"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
-        <!-- Inteligência -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Inteligência"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/intelligenceValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="14"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/intelligenceModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+2"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
-        <!-- Sabedoria -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Sabedoria"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/wisdomValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/wisdomModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+0"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
-
-        <!-- Carisma -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Carisma"
-                android:textSize="18sp"
-                android:textColor="#775447"/>
-
-            <TextView
-                android:id="@+id/charismaValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="11"
-                android:textSize="18sp"
-                android:textColor="#000000"
-                android:layout_marginEnd="16dp"/>
-
-            <TextView
-                android:id="@+id/charismaModifier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+0"
-                android:textSize="18sp"
-                android:textColor="#000000"/>
-        </LinearLayout>
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="#e6e6e6"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#775447"
+            android:hint="Raça" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/characterHp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="#e6e6e6"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#775447" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e6e6e6"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/characterClass"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="#d9534f"
+            android:padding="8dp"
+            android:text="Classe"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="8dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="118dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Atributo"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:text="Pontos"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Modificador"
+                    android:textStyle="bold"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="118dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Força"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/strengthValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/strengthModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Destreza"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dexterityValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/dexterityModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Constituição"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/constitutionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/constitutionModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="119dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Inteligência"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/intelligenceValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/intelligenceModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="121dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Sabedoria"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/wisdomValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/wisdomModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="122dp"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Carisma"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/charismaValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/charismaModifier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:textAlignment="center"
+                    android:textColor="#775447"
+                    android:textSize="18sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

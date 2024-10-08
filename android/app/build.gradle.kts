@@ -55,7 +55,7 @@ dependencies {
 
     // Dependências do projeto
     implementation(libs.androidx.core.ktx)
-    implementation("com.github.vitor-machado04:dangeonsDragons:1.1.2") // Dependência JitPack
+    implementation("com.github.vitor-machado04:dangeonsDragons:1.1.2")
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -66,21 +66,17 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.appcompat)
 
-    // Dependências do Room
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
 
-    // Coroutines support (opcional)
     implementation("androidx.room:room-ktx:$room_version")
 
-    // Testes
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
-
-    // Dependências de debug
+    
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

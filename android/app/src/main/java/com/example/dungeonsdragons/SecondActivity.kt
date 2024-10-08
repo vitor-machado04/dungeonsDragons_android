@@ -48,10 +48,8 @@ class SecondActivity : ComponentActivity() {
         val btnMinusCharisma = findViewById<Button>(R.id.btnMinusCharisma)
         val btnPlusCharisma = findViewById<Button>(R.id.btnPlusCharisma)
 
-        // Atualizar os pontos restantes no TextView no início
         updateRemainingPoints(txtRemainingPoints)
 
-        // Configurando os botões de "+" e "-" para os atributos
         btnMinusStrength.setOnClickListener {
             if (strength > 8) {
                 strength -= 1
@@ -182,18 +180,15 @@ class SecondActivity : ComponentActivity() {
         }
     }
 
-    // Função utilitária para exibir mensagens Toast
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    // Função para criar o personagem e enviar os dados para a próxima activity
     private fun createCharacter() {
         val name = intent.getStringExtra("name")
         val raceString = intent.getStringExtra("race")
         val classString = intent.getStringExtra("charClass")
 
-        // Enviar os dados para a CreateCharacterActivity
         val intent = Intent(this, CreateCharacterActivity::class.java)
         intent.putExtra("name", name)
         intent.putExtra("race", raceString)
@@ -207,7 +202,6 @@ class SecondActivity : ComponentActivity() {
         startActivity(intent)
     }
 
-    // Função para atualizar os pontos restantes
     private fun updateRemainingPoints(txtRemainingPoints: TextView) {
         txtRemainingPoints.text = "Pontos Restantes: $remainingPoints"
     }
