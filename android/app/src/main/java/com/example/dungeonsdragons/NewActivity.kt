@@ -25,6 +25,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,21 +33,30 @@ import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat.startActivity
 import com.example.dungeonsdragons.Data.AppApplication
 import com.example.dungeonsdragons.Data.CharacterEntity
-import com.example.dungeonsdragons.MainActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class NewActivity : ComponentActivity() {
+    private val users = mutableStateListOf<CharacterEntity>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val users = (application as AppApplication).connectDb.characterDao().getAllCharacters()
 
+        CoroutineScope(Dispatchers.IO).launch {
+            val characters = (application as AppApplication).connectDb.characterDao().getAllCharacters()
+            users.addAll(characters)
+        }
 
         setContent {
             MaterialTheme {
                 CharacterList(
-                    users,
-                    onDelete = {
-                        users.remove(it)
-                        (application as AppApplication).connectDb.characterDao().delete(it)
+                    users = users,
+                    onDelete = { character ->
+                        users.remove(character)
+                        CoroutineScope(Dispatchers.IO).launch {
+                            (application as AppApplication).connectDb.characterDao().delete(character)
+                        }
                     },
                     context = this
                 )
@@ -54,6 +64,35 @@ class NewActivity : ComponentActivity() {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            val characterId = data?.getIntExtra("characterId", -1)
+            val name = data?.getStringExtra("name")
+            val strength = data?.getIntExtra("strength", 8)
+            val dexterity = data?.getIntExtra("dexterity", 8)
+            val constitution = data?.getIntExtra("constitution", 8)
+            val intelligence = data?.getIntExtra("intelligence", 8)
+            val wisdom = data?.getIntExtra("wisdom", 8)
+            val charisma = data?.getIntExtra("charisma", 8)
+
+            if (characterId != null && characterId != -1) {
+                val characterIndex = users.indexOfFirst { it.id == characterId }
+                if (characterIndex != -1) {
+                    val updatedCharacter = users[characterIndex].copy(
+                        name = name ?: users[characterIndex].name,
+                        strength = strength ?: users[characterIndex].strength,
+                        dexterity = dexterity ?: users[characterIndex].dexterity,
+                        constitution = constitution ?: users[characterIndex].constitution,
+                        intelligence = intelligence ?: users[characterIndex].intelligence,
+                        wisdom = wisdom ?: users[characterIndex].wisdom,
+                        charisma = charisma ?: users[characterIndex].charisma
+                    )
+                    users[characterIndex] = updatedCharacter
+                }
+            }
+        }
+    }
 }
 
 @Composable
@@ -113,7 +152,6 @@ fun CharacterList(users: MutableList<CharacterEntity>, onDelete: (CharacterEntit
                         onClick = {
                             onDelete(character)
                             Toast.makeText(context, "Personagem excluído", Toast.LENGTH_SHORT).show()
-                            (context as NewActivity).recreate()
                         },
                         modifier = Modifier.align(Alignment.CenterHorizontally),
                         colors = ButtonDefaults.buttonColors(
@@ -121,6 +159,19 @@ fun CharacterList(users: MutableList<CharacterEntity>, onDelete: (CharacterEntit
                         )
                     ) {
                         Text("Excluir", color = Color.White)
+                    }
+
+                    Button(
+                        onClick = {
+                            val intent = Intent(context, UpdateCharacterActivity::class.java)
+                            intent.putExtra("characterId", character.id)
+                            (context as NewActivity).startActivityForResult(intent, 1)
+                        },
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.primary,
+                        )
+                    ) {
+                        Text("Atualizar", color = Color.White)
                     }
                 }
             }

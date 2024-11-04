@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Personagem" />
+
+    <EditText
+        android:id="@+id/editStrength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Força" />
+
+    <EditText
+        android:id="@+id/editDexterity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Destreza" />
+
+    <EditText
+        android:id="@+id/editConstitution"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Constituição" />
+
+    <EditText
+        android:id="@+id/editIntelligence"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Inteligência" />
+
+    <EditText
+        android:id="@+id/editWisdom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sabedoria" />
+
+    <EditText
+        android:id="@+id/editCharisma"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Carisma" />
+
+    <Button
+        android:id="@+id/buttonUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Atualizar Personagem" />
+
+</LinearLayout>
