@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".Data.AppApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -33,6 +34,8 @@
             android:name=".CreateCharacterActivity"
             android:label="@string/title_create_character"
             android:theme="@style/Theme.DungeonsDragons"/>
+
+        <activity android:name=".NewActivity"/>
 
 
     </application>
